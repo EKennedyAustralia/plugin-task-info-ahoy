@@ -21,6 +21,8 @@ export default class TaskInfoAhoyPlugin extends FlexPlugin {
   async init(flex, manager) {
     this.registerReducers(manager);
 
+    // The options supplied tell Flex to put our new content ABOVE the other content in the task info panel
+    // we could have used the .replace() mthod instead of .add() if we didn't want to keep the existing content
     const options = { sortOrder: -1 };
     flex.TaskInfoPanel.Content.add(<ExampleTaskComponent key="example-task-component"/>, options);
   }
